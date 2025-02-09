@@ -57,13 +57,17 @@ footer {
         text-align: center;
     }
 
-    > .links {
+    > .projects {
         display: grid;
         justify-content: center;
     }
 
+    > .projects > .list {
+        margin-block-start: 0;
+    }
+
     > .widget {
-        margin-block: 2em;
+        margin-block: 1em;
 
         display: grid;
         justify-content: center;
@@ -71,6 +75,12 @@ footer {
         iframe {
             max-inline-size: 100%;
         }
+    }
+}
+
+.serenity-project {
+    > .text {
+        max-inline-size: 70ch;
     }
 }
 
