@@ -1,5 +1,14 @@
 @use "../base/dimensions";
 
+:root,
+:root[data-theme="light"] {
+    --border-colour: hsl(0, 0%, 0%);
+}
+
+:root[data-theme="dark"] {
+    --border-colour: hsl(0, 0%, 100%);
+}
+
 body {
     min-block-size: 100vh;
 }
@@ -64,6 +73,10 @@ footer {
 
     > .projects > .list {
         margin-block-start: 0;
+
+        padding-inline-start: 1em;
+
+        list-style: none;
     }
 
     > .widget {
@@ -79,21 +92,17 @@ footer {
 }
 
 .serenity-project {
+    > .caption {
+        margin-inline-start: -0.5em;
+
+        border-block-end: 1px solid var(--border-colour);
+    }
+
     > .text {
         max-inline-size: 70ch;
     }
 }
 
-:root,
-:root[data-theme="light"] {
-    --footer-border-colour: hsl(0, 0%, 0%);
-}
-
-:root,
-:root[data-theme="dark"] {
-    --footer-border-colour: hsl(0, 0%, 100%);
-}
-
 .footer-content {
-    border-block-start: 1px solid var(--footer-border-colour);
+    border-block-start: 1px solid var(--border-colour);
 }
