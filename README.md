@@ -20,6 +20,9 @@ meant to be run on Github Pages.
 This site uses [TypeScript][ts] and [SCSS][sass-scss] instead of regular
 JavaScript and CSS. When writing CSS, the [RSCSS][rscss] system is used.
 
+Media files, like images, sounds, and videos, are stored in the `public/`
+directory.
+
 [vite]: https://vite.dev
 [node]: https://nodejs.org
 [nginx]: https://nginx.org
