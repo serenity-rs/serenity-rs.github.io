@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <title>Serenity, Rust wrapper for Discord</title>
+
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="color-scheme" content="light dark" />
+
+        <meta name="author" content="Serenity developers" />
+        <meta name="description" content="A Rust wrapper for the Discord API" />
+        <meta name="keywords" content="rust,discord" />
+
+        <meta name="og:title" content="Serenity, Rust wrapper for Discord" />
+        <meta
+            name="og:description"
+            content="A Rust wrapper for the Discord API"
+        />
+        <meta name="og:type" content="website" />
+        <meta name="og:url" content="https://serenity-rs.github.io/" />
+        <meta
+            name="og:image"
+            content="https://serenity-rs.github.io/logo.png"
+        />
+
+        <link rel="stylesheet" href="/base.scss" />
+
+        <link rel="stylesheet" href="/index/style.scss" />
+
+        <script>
+            var elem = document.querySelector(":root");
+            if (elem === undefined) {
+                elem = document.querySelector("html");
+            }
+
+            function setTheme(theme) {
+                elem.dataset.theme = theme;
+                localStorage.setItem("theme", theme);
+            }
+
+            var media = window.matchMedia("(prefers-color-scheme: dark)");
+
+            var localTheme = localStorage.getItem("theme");
+            if (localTheme !== null) {
+                setTheme(localTheme === "dark" ? "dark" : "light");
+            } else {
+                setTheme(media.matches ? "dark" : "light");
+            }
+
+            media.addEventListener("change", function (ev) {
+                setTheme(ev.matches ? "dark" : "light");
+            });
+        </script>
+
+        <script type="module" src="/index/main.ts"></script>
+    </head>
+    <body>
+        <div class="container">
+            <header class="header-content">
+                <nav class="navigation">
+                    <ul class="nav-links">
+                        <li class="item">
+                            <a
+                                class="link -github"
+                                href="https://github.com/serenity-rs/serenity"
+                            >
+                                Github
+                            </a>
+                        </li>
+                        <li class="item">
+                            <a
+                                class="link -discord"
+                                href="https://discord.gg/serenity-rs"
+                            >
+                                Discord
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <div class="toggler">
+                    <button class="button" id="toggle-button" type="button">Toggle theme</button>
+                </div>
+            </header>
+
+            <main class="main-content">
+                <h1 class="caption">
+                    Serenity, a Rust wrapper for the Discord API
+                </h1>
+
+                <div class="logo">
+                    <img src="/logo.png" alt="Serenity logo" />
+                </div>
+
+                <p class="text">
+                    Serenity is a HTTP and gateway wrapper around
+                    <a href="https://discord.com">Discord</a>'s API, written in
+                    the
+                    <a href="https://rust-lang.org">Rust programming language</a
+                    >.
+                </p>
+
+                <p class="text">
+                    It offers a high-level, easy to use API for creating bots
+                    using Discord's official API.
+                </p>
+
+                <div class="links">
+                    <h2>Links:</h2>
+
+                    <ul class="list" role="navigation">
+                        <li class="item">
+                            <a href="https://github.com/serenity-rs/serenity"
+                                >Github repository</a
+                            >
+                        </li>
+                        <li class="item">
+                            <a href="https://discord.gg/serenity-rs"
+                                >Discord server invite link</a
+                            >
+                        </li>
+
+                        <li class="item">
+                            <h3>Documentation links</h3>
+
+                            <ul class="doc-links">
+                                <li class="item">
+                                    <a href="https://docs.rs/serenity"
+                                        >Latest crates.io release</a
+                                    >
+                                </li>
+
+                                <li class="item">
+                                    <a
+                                        href="https://serenity-rs.github.io/serenity/current/serenity/index.html"
+                                        >Latest changes on the
+                                        <code>current</code> Git branch</a
+                                    >
+                                </li>
+
+                                <li class="item">
+                                    <a
+                                        href="https://serenity-rs.github.io/serenity/next/serenity/index.html"
+                                        >Latest changes on the
+                                        <code>next</code> Git branch</a
+                                    >
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="widget">
+                    <iframe
+                        src="https://discord.com/widget?id=381880193251409931&theme=dark"
+                        width="350"
+                        height="500"
+                        allowtransparency="true"
+                        frameborder="0"
+                        sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
+                    ></iframe>
+                </div>
+            </main>
+
+            <footer class="footer-content">
+                <p>Made by Serenity developers</p>
+            </footer>
+        </div>
+    </body>
+</html>

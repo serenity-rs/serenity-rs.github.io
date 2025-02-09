@@ -1,0 +1,89 @@
+@use "../base/dimensions";
+
+body {
+    min-block-size: 100vh;
+}
+
+header,
+main,
+footer {
+    padding-block: 1em;
+    padding-inline: 2em;
+}
+
+.container {
+    max-inline-size: 1024px;
+    margin-inline: auto;
+}
+
+.header-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2em;
+
+    justify-content: space-around;
+
+    > .toggler {
+        align-self: center;
+    }
+
+    @media (min-width: dimensions.$medium-width) {
+        justify-content: space-between;
+    }
+}
+
+.nav-links {
+    padding: 0;
+
+    display: flex;
+    gap: 2em;
+
+    list-style: none;
+}
+
+.main-content {
+    > .caption {
+        text-align: center;
+    }
+
+    > .logo {
+        margin-block: 2em;
+
+        display: grid;
+        justify-content: center;
+    }
+
+    > .text {
+        text-align: center;
+    }
+
+    > .links {
+        display: grid;
+        justify-content: center;
+    }
+
+    > .widget {
+        margin-block: 2em;
+
+        display: grid;
+        justify-content: center;
+
+        iframe {
+            max-inline-size: 100%;
+        }
+    }
+}
+
+:root,
+:root[data-theme="light"] {
+    --footer-border-colour: hsl(0, 0%, 0%);
+}
+
+:root,
+:root[data-theme="dark"] {
+    --footer-border-colour: hsl(0, 0%, 100%);
+}
+
+.footer-content {
+    border-block-start: 1px solid var(--footer-border-colour);
+}
