@@ -1,6 +1,7 @@
 import { defineConfig } from "vite";
 
 import presetenv, { type DirectionFlow } from "postcss-preset-env";
+import cssnano from "cssnano";
 
 import { resolve } from "node:path";
 
@@ -33,6 +34,7 @@ export default defineConfig({
                         blockDirection: "top-to-bottom" as DirectionFlow,
                     },
                 }),
+                cssnano({}),
             ],
         },
     },
