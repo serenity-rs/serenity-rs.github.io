@@ -1,7 +1,7 @@
 # Site source code
 
 This is source code for the https://serenity-rs.github.io site, built using
-Vite.
+[Vite][vite].
 
 ## Contributing
 
@@ -20,6 +20,7 @@ meant to be run on Github Pages.
 This site uses [TypeScript][ts] and [SCSS][sass-scss] instead of regular
 JavaScript and CSS. When writing CSS, the [RSCSS][rscss] system is used.
 
+[vite]: https://vite.dev
 [node]: https://nodejs.org
 [nginx]: https://nginx.org
 [ts]: https://typescriptlang.org
