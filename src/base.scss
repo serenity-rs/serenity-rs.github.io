@@ -1,11 +1,5 @@
 @forward "base/reset";
 
-:root {
-    --font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-        Roboto, Oxygen, Ubuntu, Cantarell, "Noto Sans", "Open Sans",
-        "Helvetica Neue", sans-serif;
-}
-
 :root,
 :root[data-scheme="auto"] {
     color-scheme: light dark;
@@ -26,8 +20,6 @@
 }
 
 :root {
-    font-family: var(--font-family);
-
     background-color: var(--bg-colour);
     color: var(--text-colour);
 }
