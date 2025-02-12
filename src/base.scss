@@ -7,14 +7,18 @@
 }
 
 :root,
-:root[data-theme="light"] {
+:root[data-scheme="auto"] {
+    color-scheme: light dark;
+}
+
+:root[data-scheme="light"] {
     --bg-colour: hsl(0, 0%, 100%);
     --text-colour: hsl(0, 0%, 0%);
 
     color-scheme: light;
 }
 
-:root[data-theme="dark"] {
+:root[data-scheme="dark"] {
     --bg-colour: hsl(0, 0%, 10%);
     --text-colour: hsl(0, 0%, 100%);
 

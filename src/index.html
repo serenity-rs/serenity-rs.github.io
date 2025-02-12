@@ -35,16 +35,16 @@
                 elem = document.querySelector("html");
             }
 
-            function setTheme(theme) {
-                elem.dataset.theme = theme;
-                localStorage.setItem("theme", theme);
+            function setTheme(scheme) {
+                elem.dataset.scheme = scheme;
+                localStorage.setItem("theme", scheme);
             }
 
             var media = window.matchMedia("(prefers-color-scheme: dark)");
 
-            var localTheme = localStorage.getItem("theme");
-            if (localTheme !== null) {
-                setTheme(localTheme === "dark" ? "dark" : "light");
+            var localScheme = localStorage.getItem("scheme");
+            if (localScheme !== null) {
+                setTheme(localScheme === "dark" ? "dark" : "light");
             } else {
                 setTheme(media.matches ? "dark" : "light");
             }

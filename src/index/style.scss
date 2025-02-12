@@ -1,11 +1,11 @@
 @use "../base/dimensions";
 
 :root,
-:root[data-theme="light"] {
+:root[data-scheme="light"] {
     --border-colour: hsl(0, 0%, 0%);
 }
 
-:root[data-theme="dark"] {
+:root[data-scheme="dark"] {
     --border-colour: hsl(0, 0%, 100%);
 }
 

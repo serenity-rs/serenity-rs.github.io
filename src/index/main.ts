@@ -42,7 +42,7 @@ function getTheme(): Theme {
 function setTheme(theme: Theme): void {
     const elem = getRootElement();
 
-    elem.dataset.theme = theme;
+    elem.dataset.scheme = theme;
 
     localStorage.setItem("theme", theme);
 }
