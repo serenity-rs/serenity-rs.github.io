@@ -1,72 +1,24 @@
-function getRootElement(): HTMLElement {
-    const elem = document.querySelector<HTMLElement>(":root");
-    if (elem === null) {
-        return document.querySelector<HTMLElement>("html")!;
-    }
-
-    return elem;
-}
-
-enum Theme {
-    Light = "light",
-    Dark = "dark",
-}
-
-function getTheme(): Theme {
-    const elem = getRootElement();
-
-    const defaultTheme = Theme.Light;
-
-    switch (elem.dataset.theme) {
-        case "light":
-            return Theme.Light;
-        case "dark":
-            return Theme.Dark;
-        default:
-            const theme = localStorage.getItem("theme");
-            if (theme === null) {
-                return defaultTheme;
-            }
-
-            switch (theme) {
-                case "light":
-                    return Theme.Light;
-                case "dark":
-                    return Theme.Dark;
-                default:
-                    return defaultTheme;
-            }
-    }
-}
-
-function setTheme(theme: Theme): void {
-    const elem = getRootElement();
-
-    elem.dataset.scheme = theme;
-
-    localStorage.setItem("theme", theme);
-}
-
-function toggleTheme(): void {
-    const theme = getTheme();
-
-    switch (theme) {
-        case Theme.Light:
-            setTheme(Theme.Dark);
-            break;
-        case Theme.Dark:
-            setTheme(Theme.Light);
-            break;
-    }
-}
+import { ColourScheme, getSettings, setSettings } from "@/base/theme";
 
 function initialise(): void {
+    const settings = getSettings();
+
     const toggler = document.getElementById("toggle-button")!;
 
-    toggler.addEventListener("click", ev => {
+    toggler.addEventListener("click", (ev) => {
         ev.preventDefault();
 
-        toggleTheme();
+        switch (settings.scheme) {
+            case ColourScheme.Auto:
+            case ColourScheme.Light:
+                settings.scheme = ColourScheme.Dark;
+                break;
+            case ColourScheme.Dark:
+                settings.scheme = ColourScheme.Light;
+                break;
+        }
+
+        setSettings(settings);
     });
 }
 
