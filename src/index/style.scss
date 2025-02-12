@@ -87,6 +87,8 @@ footer {
         margin-inline-start: -0.5em;
 
         border-block-end: 1px solid var(--border-colour);
+
+        transition: border-block-end-color 0.5s ease-in-out;
     }
 
     > .text {
@@ -96,4 +98,6 @@ footer {
 
 .footer-content {
     border-block-start: 1px solid var(--border-colour);
+
+    transition: border-block-start-color 0.5s ease-in-out;
 }

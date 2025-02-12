@@ -23,4 +23,6 @@
 :root {
     background-color: var(--bg-colour);
     color: var(--text-colour);
+
+    transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
 }
