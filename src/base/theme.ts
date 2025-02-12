@@ -14,11 +14,26 @@ export enum ColourScheme {
 }
 
 export interface ThemeSettings {
+    theme: string;
     scheme: ColourScheme;
 }
 
 export function getSettings(): ThemeSettings {
     const elem = getRootElement();
+
+    const theme = (() => {
+        const theme = elem.dataset["theme"];
+        if (theme !== undefined) {
+            return theme;
+        }
+
+        const localTheme = localStorage.getItem("theme");
+        if (localTheme !== null) {
+            return localTheme;
+        }
+
+        return "normal";
+    })();
 
     const scheme = (() => {
         const scheme = (() => {
@@ -48,6 +63,7 @@ export function getSettings(): ThemeSettings {
     })();
 
     return {
+        theme,
         scheme,
     };
 }
@@ -55,7 +71,9 @@ export function getSettings(): ThemeSettings {
 export function setSettings(settings: ThemeSettings): void {
     const elem = getRootElement();
 
+    elem.dataset["theme"] = settings.theme;
     elem.dataset["scheme"] = settings.scheme as string;
 
+    localStorage.setItem("theme", settings.theme);
     localStorage.setItem("scheme", settings.scheme as string);
 }

@@ -23,35 +23,56 @@
             content="https://serenity-rs.github.io/logo.png"
         />
 
-        <link rel="shortcut icon" href="/favicon.png" type="image/png">
+        <link rel="shortcut icon" href="/favicon.png" type="image/png" />
 
         <link rel="stylesheet" href="/base.scss" />
 
         <link rel="stylesheet" href="/index/style.scss" />
 
         <script>
-            var elem = document.querySelector(":root");
-            if (elem === undefined) {
-                elem = document.querySelector("html");
+            function __setTheme(theme, scheme) {
+                var elem = document.querySelector(":root");
+                if (elem === undefined) {
+                    elem = document.querySelector("html");
+                }
+
+                elem.dataset["theme"] = theme;
+                elem.dataset["scheme"] = scheme;
+                localStorage.setItem("theme", theme);
+                localStorage.setItem("scheme", scheme);
             }
 
-            function setTheme(scheme) {
-                elem.dataset.scheme = scheme;
-                localStorage.setItem("theme", scheme);
-            }
+            (function() {
+                var theme = "normal";
+                var scheme = "auto";
 
-            var media = window.matchMedia("(prefers-color-scheme: dark)");
+                var localTheme = localStorage.getItem("theme");
+                if (localTheme !== null) {
+                    theme = localTheme;
+                }
 
-            var localScheme = localStorage.getItem("scheme");
-            if (localScheme !== null) {
-                setTheme(localScheme === "dark" ? "dark" : "light");
-            } else {
-                setTheme(media.matches ? "dark" : "light");
-            }
+                var localScheme = localStorage.getItem("scheme");
+                if (localScheme !== null) {
+                    scheme = localScheme;
+                } else if (
+                    window.matchMedia("(prefers-color-scheme: light)").matches
+                ) {
+                    scheme = "light";
+                } else if (
+                    window.matchMedia("(prefers-color-scheme: dark)").matches
+                ) {
+                    scheme = "dark";
+                }
 
-            media.addEventListener("change", function (ev) {
-                setTheme(ev.matches ? "dark" : "light");
-            });
+                __setTheme(theme, scheme);
+
+                window
+                    .matchMedia("(prefers-color-scheme: dark)")
+                    .addEventListener("change", function (ev) {
+                        scheme = ev.matches ? "dark" : "light";
+                        __setTheme(theme, scheme);
+                    });
+            })();
         </script>
 
         <script type="module" src="/index/main.ts"></script>
