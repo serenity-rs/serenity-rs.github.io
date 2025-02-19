@@ -26,7 +26,7 @@ video,
 canvas,
 svg {
     display: block;
-    max-width: 100%;
+    max-inline-size: 100%;
 }
 
 input,
@@ -124,11 +124,11 @@ sup {
 }
 
 sub {
-    bottom: -0.25em;
+    inset-block-end: -0.25em;
 }
 
 sup {
-    top: -0.5em;
+    inset-block-start: -0.5em;
 }
 
 a {
