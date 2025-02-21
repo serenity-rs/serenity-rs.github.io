@@ -1,6 +1,9 @@
 @use "../base/dimensions";
 
 :root {
+    --code-colour: light-dark(hsl(220, 13%, 95%), hsl(220, 7%, 18%));
+    --code-border-colour: light-dark(hsl(220, 13%, 75%), hsl(225, 7%, 38%));
+
     --button-bg-colour: light-dark(hsl(0, 0%, 0%), hsl(0, 0%, 100%));
     --button-active-colour: light-dark(hsl(0, 0%, 60%), hsl(0, 0%, 40%));
     --button-outline-colour: hsl(240, 50%, 50%);
@@ -16,6 +19,23 @@ body {
 .container {
     max-inline-size: 64em;
     margin-inline: auto;
+}
+
+.code {
+    display: inline;
+
+    padding-inline: 0.2em;
+
+    background-color: var(--code-colour);
+
+    border: 1px solid var(--code-border-colour);
+    border-radius: 4px;
+
+    font-family: monospace, monospace;
+
+    white-space: pre-wrap;
+
+    transition: background-color 0.5s ease-in-out, border-color 0.5s ease-in-out;
 }
 
 .button {
