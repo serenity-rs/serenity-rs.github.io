@@ -44,7 +44,10 @@ export default defineConfig({
         emptyOutDir: true,
         target: "es2015",
         rollupOptions: {
-            input: [resolve(__dirname, "src", "index.html")],
+            input: [
+                resolve(__dirname, "src", "base.scss"),
+                resolve(__dirname, "src", "index.html")
+            ],
             output: {
                 entryFileNames: `${assetsDir}[name].js`,
                 chunkFileNames: `${assetsDir}[name].[ext]`,
