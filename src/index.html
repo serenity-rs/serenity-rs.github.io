@@ -78,46 +78,77 @@
         <script type="module" src="/index/main.ts"></script>
     </head>
     <body>
-        <div class="container">
-            <header class="header-content">
-                <nav class="navigation">
-                    <ul class="nav-links">
-                        <li class="item">
-                            <a
-                                class="link -github"
-                                href="https://github.com/serenity-rs/"
+        <header class="site-header container">
+            <nav class="navigation">
+                <ul class="navigation__links">
+                    <li>
+                        <a
+                            class="navigation__links__link"
+                            href="https://github.com/serenity-rs/"
+                        >
+                            <div
+                                class="navigation__links__link__icon github-icon"
                             >
+                                <img
+                                    class="navigation__links__link__icon__image github-icon__black"
+                                    src="/github-mark.svg"
+                                    alt="Black Github logo"
+                                />
+
+                                <img
+                                    class="navigation__links__link__icon__image github-icon__white"
+                                    src="/github-mark-white.svg"
+                                    alt="White Github logo"
+                                />
+                            </div>
+
+                            <div class="navigation__links__link__label">
                                 Github
-                            </a>
-                        </li>
-                        <li class="item">
-                            <a
-                                class="link -discord"
-                                href="https://discord.gg/serenity-rs"
-                            >
+                            </div>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a
+                            class="navigation__links__link"
+                            href="https://discord.gg/serenity-rs"
+                        >
+                            <div class="navigation__links__link__icon">
+                                <img
+                                    class="navigation__links__link__icon__image"
+                                    src="/discord.svg"
+                                    alt="Discord logo"
+                                />
+                            </div>
+
+                            <div class="navigation__links__link__label">
                                 Discord
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
 
-                <div class="toggler">
-                    <button class="button" id="toggle-button" type="button">
-                        Toggle theme
-                    </button>
-                </div>
-            </header>
+            <button class="button" type="button" id="toggle-button">
+                Toggle theme
+            </button>
+        </header>
 
-            <main class="main-content">
-                <h1 class="caption">
+        <main class="site-body container">
+            <div class="site-body__header">
+                <h1 class="site-body__header__title">
                     Serenity, a Rust wrapper for the Discord API
                 </h1>
 
-                <div class="logo">
-                    <img src="/logo.png" alt="Serenity logo" />
-                </div>
+                <img
+                    class="site-body__header__logo"
+                    src="/logo.png"
+                    alt="Serenity logo"
+                    width="256"
+                    height="256"
+                />
 
-                <p class="text">
+                <p class="site-body__header__description">
                     Serenity is a HTTP and gateway wrapper around
                     <a href="https://discord.com">Discord</a>'s API, written in
                     the
@@ -125,21 +156,23 @@
                     >.
                 </p>
 
-                <p class="text">
+                <p class="site-body__header__description">
                     It offers a high-level, easy to use API for creating bots
                     using Discord's official API.
                 </p>
+            </div>
 
+            <div class="site-body__body">
                 <div class="projects">
-                    <h2 class="caption">Projects:</h2>
+                    <h2 class="projects__title">Projects:</h2>
 
-                    <ul class="list" role="navigation">
-                        <li class="serenity-project item">
-                            <h3 class="caption" id="project-serenity">
+                    <ul class="projects__list" role="navigation">
+                        <li class="projects__list__project project">
+                            <h3 class="project__heading" id="project-serenity">
                                 Serenity
                             </h3>
 
-                            <p class="text -indent">
+                            <p class="project__description">
                                 The main project, providing support for
                                 Discord's Gateway and REST APIs.
                             </p>
@@ -148,17 +181,26 @@
                                 Github repository
                             </a>
 
-                            <div class="doc-links">
-                                <h4 class="caption">Documentation links:</h4>
+                            <div class="project__documentation">
+                                <h4 class="project__documentation__heading">
+                                    Documentation links:
+                                </h4>
 
-                                <ul class="links" role="navigation">
-                                    <li class="item">
+                                <ul
+                                    class="project__documentation__links"
+                                    role="navigation"
+                                >
+                                    <li
+                                        class="project__documentation__links__link"
+                                    >
                                         <a href="https://docs.rs/serenity">
                                             Latest crates.io release
                                         </a>
                                     </li>
 
-                                    <li class="item">
+                                    <li
+                                        class="project__documentation__links__link"
+                                    >
                                         <a
                                             href="https://serenity-rs.github.io/serenity/current/serenity/index.html"
                                         >
@@ -167,7 +209,9 @@
                                         </a>
                                     </li>
 
-                                    <li class="item">
+                                    <li
+                                        class="project__documentation__links__link"
+                                    >
                                         <a
                                             href="https://serenity-rs.github.io/serenity/next/serenity/index.html"
                                         >
@@ -179,12 +223,12 @@
                             </div>
                         </li>
 
-                        <li class="serenity-project item">
-                            <h3 class="caption" id="project-songbird">
+                        <li class="projects__list__project project">
+                            <h3 class="project__heading" id="project-songbird">
                                 Songbird
                             </h3>
 
-                            <p class="text -indent">
+                            <p class="project__description">
                                 Songbird provides support for the voice portion
                                 of Discord's API.
                             </p>
@@ -193,17 +237,26 @@
                                 Github repository
                             </a>
 
-                            <div class="doc-links">
-                                <h4 class="caption">Documentation links:</h4>
+                            <div class="project__documentation">
+                                <h4 class="project__documentation__heading">
+                                    Documentation links:
+                                </h4>
 
-                                <ul class="links" role="navigation">
-                                    <li class="item">
+                                <ul
+                                    class="project__documentation__links"
+                                    role="navigation"
+                                >
+                                    <li
+                                        class="project__documentation__links__link"
+                                    >
                                         <a href="https://docs.rs/songbird">
                                             Latest crates.io release
                                         </a>
                                     </li>
 
-                                    <li class="item">
+                                    <li
+                                        class="project__documentation__links__link"
+                                    >
                                         <a
                                             href="https://serenity-rs.github.io/songbird/current/songbird/index.html"
                                         >
@@ -212,7 +265,9 @@
                                         </a>
                                     </li>
 
-                                    <li class="item">
+                                    <li
+                                        class="project__documentation__links__link"
+                                    >
                                         <a
                                             href="https://serenity-rs.github.io/songbird/next/songbird/index.html"
                                         >
@@ -224,14 +279,16 @@
                             </div>
                         </li>
 
-                        <li class="serenity-project item">
-                            <h3 class="caption" id="project-poise">Poise</h3>
+                        <li class="projects__list__project project">
+                            <h3 class="project__heading" id="project-poise">
+                                Poise
+                            </h3>
 
-                            <p class="text -indent">
+                            <p class="project__description">
                                 Poise is a command framework for Serenity.
                             </p>
 
-                            <p class="text -indent">
+                            <p class="project__description">
                                 It has support for prefix-based commands (e.g.
                                 <code>!ping</code>), as well as Discord's
                                 application commands, which natively integrate
@@ -242,17 +299,26 @@
                                 Github repository
                             </a>
 
-                            <div class="doc-links">
-                                <h4 class="caption">Documentation links:</h4>
+                            <div class="project__documentation">
+                                <h4 class="project__documentation__heading">
+                                    Documentation links:
+                                </h4>
 
-                                <ul class="links" role="navigation">
-                                    <li class="item">
+                                <ul
+                                    class="project__documentation__links"
+                                    role="navigation"
+                                >
+                                    <li
+                                        class="project__documentation__links__link"
+                                    >
                                         <a href="https://docs.rs/poise">
                                             Latest crates.io release
                                         </a>
                                     </li>
 
-                                    <li class="item">
+                                    <li
+                                        class="project__documentation__links__link"
+                                    >
                                         <a
                                             href="https://serenity-rs.github.io/poise/current/poise/index.html"
                                         >
@@ -261,7 +327,9 @@
                                         </a>
                                     </li>
 
-                                    <li class="item">
+                                    <li
+                                        class="project__documentation__links__link"
+                                    >
                                         <a
                                             href="https://serenity-rs.github.io/poise/next/poise/index.html"
                                         >
@@ -274,30 +342,34 @@
                         </li>
                     </ul>
                 </div>
+            </div>
 
-                <p class="text">
+            <div class="site-body__footer">
+                <p class="site-body__footer__invite">
                     If you need help, wish to consult or discuss with us, join
                     the
-                    <a href="https://discord.gg/serenity-rs">
+                    <a
+                        class="site-body__footer__invite__link"
+                        href="https://discord.gg/serenity-rs"
+                    >
                         Serenity Discord server</a
                     >!
                 </p>
 
-                <div class="widget">
-                    <iframe
-                        src="https://discord.com/widget?id=381880193251409931&theme=dark"
-                        width="350"
-                        height="500"
-                        allowtransparency="true"
-                        frameborder="0"
-                        sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
-                    ></iframe>
-                </div>
-            </main>
+                <iframe
+                    class="site-body__footer__widget"
+                    src="https://discord.com/widget?id=381880193251409931&theme=dark"
+                    width="350"
+                    height="500"
+                    allowtransparency="true"
+                    frameborder="0"
+                    sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
+                ></iframe>
+            </div>
+        </main>
 
-            <footer class="footer-content">
-                <p>Made by Serenity developers</p>
-            </footer>
-        </div>
+        <footer class="site-footer container">
+            <p class="site-footer__attribution">Made by Serenity developers</p>
+        </footer>
     </body>
 </html>

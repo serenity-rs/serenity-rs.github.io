@@ -1,14 +1,16 @@
 @use "../base/dimensions";
 
-body {
-    min-block-size: 100vh;
+:root {
+    --button-bg-colour: light-dark(hsl(0, 0%, 0%), hsl(0, 0%, 100%));
+    --button-active-colour: light-dark(hsl(0, 0%, 60%), hsl(0, 0%, 40%));
+    --button-outline-colour: hsl(240, 50%, 50%);
+    --button-shadow-colour: hsl(240, 50%, 80%);
+
+    --button-text-colour: light-dark(hsl(0, 0%, 100%), hsl(0, 0%, 0%));
 }
 
-header,
-main,
-footer {
-    padding-block: 1em;
-    padding-inline: 2em;
+body {
+    min-block-size: 100vh;
 }
 
 .container {
@@ -16,74 +18,154 @@ footer {
     margin-inline: auto;
 }
 
-.header-content {
+.button {
+    display: inline-block;
+
+    padding-block: 0.5em;
+    padding-inline: 0.75em;
+
+    border: none;
+    border-radius: 6px;
+
+    background-color: var(--button-bg-colour);
+    color: var(--button-text-colour);
+
+    cursor: pointer;
+
+    &:hover,
+    &:active {
+        background-color: var(--button-active-colour);
+    }
+
+    &:active,
+    &:focus {
+        outline-style: solid;
+        outline-width: thin;
+        outline-color: var(--button-outline-colour);
+
+        box-shadow: 0px 0px 4px 2px var(--button-shadow-colour);
+    }
+
+    transition: background-color 0.25s ease-in-out,
+        outline-color 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
+}
+
+:root .github-icon,
+:root[data-scheme="light"] .github-icon {
+    &__black {
+        display: inline-block;
+    }
+
+    &__white {
+        display: none;
+    }
+}
+
+:root[data-scheme="dark"] .github-icon {
+    &__black {
+        display: none;
+    }
+
+    &__white {
+        display: inline-block;
+    }
+}
+
+.site-header {
+    padding-block: 1em;
+    padding-inline: 2em;
+
     display: flex;
     flex-wrap: wrap;
-    gap: 2em;
-
     justify-content: space-around;
-
-    > .toggler {
-        align-self: center;
-    }
-
-    @media (min-width: dimensions.$medium-width) {
-        justify-content: space-between;
-    }
-}
-
-.nav-links {
-    padding: 0;
-
-    display: flex;
+    align-items: center;
     gap: 2em;
-
-    list-style: none;
 }
 
-.main-content {
-    > .caption {
-        text-align: center;
-    }
+.navigation {
+    &__links {
+        margin: 0;
+        padding: 0;
 
-    > .logo {
-        margin-block: 2em;
+        list-style: none;
 
-        display: grid;
+        display: flex;
+        flex-wrap: wrap;
         justify-content: center;
+        gap: 1em;
+
+        &__link {
+            display: flex;
+            align-items: center;
+            gap: 0.5em;
+
+            &__icon {
+                &__image {
+                    block-size: 2em;
+                    inline-size: 2em;
+                }
+            }
+
+            &__label {
+                font-size: 1.25em;
+            }
+        }
+    }
+}
+
+.site-body {
+    padding-block: 1em;
+    padding-inline: 2em;
+
+    &__header,
+    &__body,
+    &__footer {
+        padding-block: 0.5em;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
-    > .text {
-        text-align: center;
+    &__header {
+        &__title {
+            text-align: center;
+        }
+
+        &__logo {
+            margin-block: 0.5em;
+        }
+
+        &__description {
+            text-align: center;
+        }
     }
 
-    > .projects {
-        display: grid;
-        justify-content: center;
-    }
+    &__footer {
+        gap: 0.5em;
 
-    > .projects > .list {
+        &__invite {
+            text-align: center;
+        }
+
+        &__widget {
+            max-inline-size: 100%;
+        }
+    }
+}
+
+.projects {
+    &__list {
         margin-block-start: 0;
 
         padding-inline-start: 1em;
 
         list-style: none;
     }
-
-    > .widget {
-        margin-block: 1em;
-
-        display: grid;
-        justify-content: center;
-
-        iframe {
-            max-inline-size: 100%;
-        }
-    }
 }
 
-.serenity-project {
-    > .caption {
+.project {
+    &__heading {
         margin-inline-start: -0.5em;
 
         border-block-end: 1px solid var(--border-colour);
@@ -91,13 +173,21 @@ footer {
         transition: border-block-end-color 0.5s ease-in-out;
     }
 
-    > .text {
+    &__description {
         max-inline-size: 70ch;
     }
 }
 
-.footer-content {
+.site-footer {
+    padding-block: 0.5em;
+
     border-block-start: 1px solid var(--border-colour);
 
     transition: border-block-start-color 0.5s ease-in-out;
+
+    &__attribution {
+        margin: 0;
+
+        text-indent: 0.5em;
+    }
 }
